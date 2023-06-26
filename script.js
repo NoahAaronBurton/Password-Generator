@@ -11,7 +11,14 @@ function generatePassword() {
     }
 
   }
-  alert('Confirm the characters you would like to use for your password. For the following options, select OK to include that character set and CANCEL to exclude the character set.')
+  console.log('this password will be ' + passwordLength + ' characters in length');
+   // char sets
+   const lowerCase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+   const upperCase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+   const numeric = [1,2,3,4,5,6,7,8,9,0];
+   const special = ['!','@','#','$','%','^','&','*'];
+  
+   alert('Confirm the characters you would like to use for your password. For the following options, select OK to include that character set and CANCEL to exclude the character set.')
   // Get Character Set from user
   var selectedChars = ''; // init empty variable for char set questions
 
@@ -37,21 +44,28 @@ function generatePassword() {
     // Special chars?
     includeSpecial = confirm ('Include special characters? (%$#@...)');
   }
+  selectedChars = [includeLower,includeUpper,includeNumeric,includeSpecial]; // contains the boolean values for the charsets
+  charSet= [];
+  if (includeLower === true) { // if the boolean is true...
+    charSet.push(lowerCase); // ...then those chars are added to the char set
+  } if (includeUpper === true) {
+    charSet.push(upperCase);
+  } if (includeNumeric === true) {
+    charSet.push(numeric);
+  } if (includeSpecial === true) {
+    charSet.push(special);
+  }
   
-  // char sets
-  const lowerCase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-  const upperCase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-  const numeric = [1,2,3,4,5,6,7,8,9,0];
-  const special = ['!','@','#','$','%','^','&','*'];
+  console.log('these sets of characters will be included in the password ' + charSet);
+ 
+ 
+
   // get random index from the above arrays
   var randomLower = Math.floor(Math.random() * lowerCase.length); // Chat GPT helped me figure out how to get a random index from an array.
   var randomUpper = Math.floor(Math.random() * upperCase.length);
   var randomNumeric = Math.floor(Math.random() * numeric.length);
   var randomSpecial = Math.floor(Math.random() * special.length);
-  console.log(lowerCase[randomLower]); // test
-  console.log(upperCase[randomUpper]);
-  console.log(numeric[randomNumeric]);
-  console.log(special[randomSpecial]);
+  
   // Generate password now that length and charset is established 
   var password = ''; // declare new variable for password
   // for loop 
