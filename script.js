@@ -29,7 +29,7 @@ function generatePassword() {
      while (includeLower === false && includeUpper === false && includeNumeric === false && includeSpecial === false) { // if cancel is selected for all the choices...
     alert('You need to include at least one charset. Please try again.');
     // Lowercase?
-    includeLower = confirm ('Include lower case?'); // redeclares the variables that is equal to the choice of user input (true or false)
+    includeLower = confirm ('Include lower case?'); // redeclare the variables that are equal to the choice of user input (true or false)
     // Uppercase?
     includeUpper = confirm ('Include upper case?');
     // Numeric?
@@ -37,11 +37,30 @@ function generatePassword() {
     // Special chars?
     includeSpecial = confirm ('Include special characters? (%$#@...)');
   }
-
+  
+  // char sets
+  const lowerCase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+  const upperCase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+  const numeric = [1,2,3,4,5,6,7,8,9,0];
+  const special = ['!','@','#','$','%','^','&','*'];
+  // get random index from the above arrays
+  var randomLower = Math.floor(Math.random() * lowerCase.length); // Chat GPT helped me figure out how to get a random index from an array.
+  var randomUpper = Math.floor(Math.random() * upperCase.length);
+  var randomNumeric = Math.floor(Math.random() * numeric.length);
+  var randomSpecial = Math.floor(Math.random() * special.length);
+  console.log(lowerCase[randomLower]); // test
+  console.log(upperCase[randomUpper]);
+  console.log(numeric[randomNumeric]);
+  console.log(special[randomSpecial]);
   // Generate password now that length and charset is established 
-  var password = '';
+  var password = ''; // declare new variable for password
+  // for loop 
+  for (let i= 0; i < passwordLength; i++ ) {
+    console.log(i);
+  }
 
-  return password;
+
+  return password; // the purpose of this entire function is to return a value to the password variable
 }
 
 
