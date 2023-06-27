@@ -36,7 +36,7 @@
     <br />
     <a href="https://github.com/NoahAaronBurton/Password-Generator"><strong>Explore the docs »</strong></a>
     .
-    <a href=""><strong>Visit the site </strong></a>
+    <a href="https://noahaaronburton.github.io/Password-Generator/"><strong>Visit the site </strong></a>
     <br />
     <br />
     <a href="https://github.com/NoahAaronBurton/Password-Generator/issues">Report Bug</a>
