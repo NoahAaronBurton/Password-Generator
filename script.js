@@ -45,7 +45,7 @@ function generatePassword() {
     includeSpecial = confirm ('Include special characters? (%$#@...)');
   }
   selectedChars = [includeLower,includeUpper,includeNumeric,includeSpecial]; // contains the boolean values for the charsets
-  charSet= [];
+  charSet= []; // init new array variable to hold the characters we will use for password
   if (includeLower === true) { // if the boolean is true...
     charSet.push(lowerCase); // ...then those chars are added to the char set using the push method
   } if (includeUpper === true) {
@@ -58,9 +58,9 @@ function generatePassword() {
   
   console.log('these characters will be included in the password: ' + charSet);
 
-  // Generate password now that length and charset is established 
+  
   var password = ''; // declare new variable for password
-  // for loop 
+  // Generate password now that length and charset is established  
   for (let i= 0; i < passwordLength; i++ ) {
     var randomIndex = Math.floor(Math.random() * charSet.length); // Chat GPT helped me figure out how to get a random index from an array.
     var randomCharIndex = Math.floor(Math.random() * charSet[randomIndex].length);
